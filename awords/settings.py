@@ -32,10 +32,10 @@ SECRET_KEY = 'django-insecure-a+f&v$fvwl^d3(2&o6j-v%@e234_fvj!v$k9mg=f2pg!een-mb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = config('instagr4my.herokuapp.com', '127.0.0.1')
+ALLOWED_HOSTS = config('awordie.herokuapp.com', '127.0.0.1')
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://instagr4my.herokuapp.com'
+    'https://awordie.herokuapp.com'
 ]
 
 # Application definition
