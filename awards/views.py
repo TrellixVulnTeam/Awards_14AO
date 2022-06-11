@@ -5,6 +5,8 @@ from .models import Project, Profile, Review
 from .forms import ProfileForm, ProjectForm, RateForm
 from django.contrib.auth.models import User
 from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import ProjectSerializer, ProfileSerializer
 
 
 # Create your views here.
@@ -122,3 +124,11 @@ def rate_project(request, id):
         
     else:
         form= RateForm()   
+
+
+class ProfileList(APIView):
+    def get(self, request, format=None):
+        all_profiles = Profile.objects.all()
+        serializers = ProfileSerializer(all_profiles, many=True)
+        return Response(serializers.data)  
+    
