@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'tinymce',
     'bootstrap3',
+    'rest_framework.authtoken'
 
 
     
@@ -94,6 +95,11 @@ DATABASES = {
     }
 }
 
+cloudinary.config( 
+  cloud_name = "dry0oqcgq", 
+  api_key = "942199376718611", 
+  api_secret = "hc0nKD19l6hHkM82IWWDsYxV9oY" 
+)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
