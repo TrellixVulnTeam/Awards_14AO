@@ -77,7 +77,7 @@ TEMPLATES = [
                 'django.template.context_processors.media',
             ],
         },
-    },
+    }, 
 ]
 
 WSGI_APPLICATION = 'awords.wsgi.application'
