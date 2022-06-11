@@ -6,6 +6,7 @@ from .forms import ProfileForm, ProjectForm, RateForm
 from django.contrib.auth.models import User
 from rest_framework.response import Response
 
+
 # Create your views here.
 @login_required(login_url='/accounts/login/')
 def index(request):
