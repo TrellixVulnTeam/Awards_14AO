@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+{% load bootstrap3 %}
+{% load static%}
+{% block content%}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            <h1 class="heading-profile mt-5">Submit your project here
+            <p class="profile-text">“Don't wait for inspiration. It comes while working." - Henri Matisse</p>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="sub-body">
+                <form action="{% url 'submit_project'%}" method="post" enctype="multipart/form-data">
+                    {% csrf_token%}
+                    {% bootstrap_form form %}
+                    <div class="form-group text-center">
+                        <input type="submit" class="m-4 btn btn-primary login-btn" value="Submit your site!">
+                    </div>
+                    <input type="hidden" name="next" value="{{next}}">
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+{% endblock %}

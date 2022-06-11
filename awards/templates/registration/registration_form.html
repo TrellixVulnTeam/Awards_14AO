@@ -1,0 +1,29 @@
+{%extends "registration/base.html"%}
+{% load bootstrap3 %}
+{% block content %}
+<div class="container-fluid register-page">
+    <body class="bowdy" style="background-image:url(/static/images/reg.avif)" height="100vh" >
+        <div class="registration-section">
+            {% if form.errors %}
+            <p> Some Information Might be Incorrect </p>
+            {% endif %}
+            <div class="panel panel-default register-body">
+                <div class="panel-heading">
+                    <p class="text-center">Sign Up</p>
+                </div>
+                <div class="panel-body">
+                    <form action="/accounts/register/" method="post">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary btn-sm login-btn" value="Sign Up">
+                        </div>
+                        <input type="hidden" name="next" value="{{next}}">
+                    </form>
+                </div>
+            </div>
+        </div>  
+    </body>
+</div>
+
+{% endblock %}

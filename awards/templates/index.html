@@ -1,0 +1,56 @@
+{%extends 'base.html'%}
+
+{% load static%}
+{% block content%}
+<div style="color:#B8926A;" class="container-fluid">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block caro-img w-100" src="/static/images/cof.avif" alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="text-center">Site of the day</h1>
+                    <p>Picartzo </p>
+                   <a target="_blank" class="btn btn-primary caro-btn"href="https://picartzo.herokuapp.com/">Visit Site</a>
+                  </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block caro-img w-100" src="/static/images/cof2.avif" alt="Second slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="text-center">Site of the day</h1>
+                    <p>Quotes</p>
+                   <a target="_blank" class="btn btn-primary caro-btn"href="http://quotes.stormconsultancy.co.uk/">Visit Site</a>
+                  </div>
+            </div>
+           
+        </div>
+    </div>
+</div>
+
+<div class="container display-section">
+    <div>
+        <p class="text-center m-5">FEATURED SITES:</p>
+    </div>
+        <div class="row">
+        {% for project in projects %}
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="card">
+                <a href="{% url 'site_details' id=project.id%}"><img class="card-img-top" src="{{project.image.url}}"
+                        alt="Card image cap"></a>
+                <div class="card-body">
+                    <p class="card-title">{{project.title}}</p>
+                    <div class="d-flex justify-content-between">
+                        <p style="font-weight: normal;" class="card-text">From {{project.country}} <i class="fas 🌍"></i></p>
+                        <p style="font-weight: normal;">{{project.posted_at}}</p>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">By {{project.user | title}}</li>
+
+                </ul>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
