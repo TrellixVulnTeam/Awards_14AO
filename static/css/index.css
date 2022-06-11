@@ -145,16 +145,8 @@ font-weight: bold;
   opacity: 0.5;
 
 }
-.profile {
-  
-  font-size: 100px;
-  margin-top: 15%;
-  
-}
-.profile-details {
-  
-  color: #B8926A;
-}
+
+
 .prof-pic {
   width: 100px;
   height: 100px;
@@ -162,16 +154,11 @@ font-weight: bold;
   border-radius: 50%;
 }
 .caro-img {
-  height: 500px;
-  width: 100%;
+  width: 100vh;
   object-fit: cover;
 }
-.display-section{
-  padding: 5%;
-}
-.jumbotron {
-  padding: 5%;
-}
+
+
 .choice-form {
   width: 400px;
   margin: 3% auto;
@@ -182,13 +169,10 @@ font-weight: bold;
   font-weight: normal;
 }
 .caro-btn {
-  font-family: 'Open Sans', sans-serif;
   font-size: smaller;
   width: 100px;
   border-radius: 0%;
-  border: 2px solid #B8926A;
-  background-color: #E5E5E5;
-  color: black;
+
 }
 .review-section {
   font-weight: lighter;

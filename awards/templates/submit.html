@@ -4,11 +4,13 @@
 {% block content%}
 <div class="container">
     <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-6">
+        <body class="bowdy" style="background-image:url(/static/images/subm.avif)" height="100vh" >
+
+         <div class="col-lg-6 col-md-6 col-sm-6">
             <h1 class="heading-profile mt-5">Submit your project here
             <p class="profile-text">“Don't wait for inspiration. It comes while working." - Henri Matisse</p>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6">
+         </div>
+         <div class="col-lg-6 col-md-6 col-sm-6">
             <div class="sub-body">
                 <form action="{% url 'submit_project'%}" method="post" enctype="multipart/form-data">
                     {% csrf_token%}
@@ -19,9 +21,9 @@
                     <input type="hidden" name="next" value="{{next}}">
                 </form>
             </div>
-        </div>
-
+         </div>
+        </body>
     </div>
-</div>
+
 </div>
 {% endblock %}

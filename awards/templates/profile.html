@@ -4,27 +4,28 @@
 {% block content%}
 <div class="container">
     <div class="row">
-        <strong><p class="text-center">MY PROFILE</p></strong>   
-        <div class="col-lg-6 col-md-6 col-sm-6 profile-details">
-            {% for profile in profiles %}
-            <div class="m-2 p-3 text-center">
+      <body class="bowdy" style="background-image:url(/static/images/subm.avif)" height="100vh" >
+          <strong><p class="text-center">MY PROFILE</p></strong>   
+            <div class="col-lg-6 col-md-6 col-sm-6 profile-details">
+             {% for profile in profiles %}
+              <div class="m-2 p-3 text-center">
 
                 <img class="prof-pic" src="{{profile.profile_picture.url}}" alt="">
                 <p class="mt-2">{{profile.user}}</p>
+              </div>
+                 <p><i class="fas fa-quote-right me-2"></i>{{profile.bio}}</p>
+                  <h6>Contact me;</h6>
+                     <p><i class="📧"></i>{{profile.email}}</p>
+                       <p><i class="📲"></i>{{profile.phone_number}}</p>
+                          {% endfor %}
+                            <div>
+                                  <h6>Submitted Projects</h6>
+                                        {% for project in projects%}
+                                          <p>{{project.title}}</p>
+                                        {% endfor %}
+                             </div>
             </div>
-            <p><i class="fas fa-quote-right me-2"></i>{{profile.bio}}</p>
-            <h6>Contact me;</h6>
-            <p><i class="📧"></i>{{profile.email}}</p>
-            <p><i class="📲"></i>{{profile.phone_number}}</p>
-            {% endfor %}
-            <div>
-                <h6>Submitted Projects</h6>
-                {% for project in projects%}
-                <p>{{project.title}}</p>
-                {% endfor %}
-            </div>
-        </div>
-        
+        </body>
     </div>
 </div>
 
