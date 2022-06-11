@@ -14,6 +14,10 @@ from pathlib import Path
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+from decouple import config,Csv
+import django_heroku
+import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,8 +32,11 @@ SECRET_KEY = 'django-insecure-a+f&v$fvwl^d3(2&o6j-v%@e234_fvj!v$k9mg=f2pg!een-mb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config('instagr4my.herokuapp.com', '127.0.0.1')
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://instagr4my.herokuapp.com'
+]
 
 # Application definition
 
@@ -88,14 +95,28 @@ WSGI_APPLICATION = 'awords.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'awords',
-        'USER': 'bianca',
-    'PASSWORD':'password',
-    }
-}
+if config('MODE')=="dev":
+   DATABASES = {
+       'default': {
+           'ENGINE': 'django.db.backends.postgresql_psycopg2',
+           'NAME': config('DB_NAME'),
+           'USER': config('DB_USER'),
+           'PASSWORD': config('DB_PASSWORD'),
+           'HOST': config('DB_HOST'),
+           'PORT': '',
+       }
+       
+   }
+# production
+else:
+   DATABASES = {
+       'default': dj_database_url.config(
+           default=config('DATABASE_URL')
+       )
+   }
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 cloudinary.config( 
   cloud_name = "dry0oqcgq", 
@@ -156,3 +177,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # configuring the location for media
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Configure Django App for Heroku.
+django_heroku.settings(locals())
