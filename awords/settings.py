@@ -25,13 +25,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
-
-MODE=config("MODE", default="dev")
+ 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = 'django-insecure-a+f&v$fvwl^d3(2&o6j-v%@e234_fvj!v$k9mg=f2pg!een-mb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', False)
+DEBUG = True
 
 ALLOWED_HOSTS = config('awordie.herokuapp.com', '127.0.0.1')
 
@@ -54,8 +53,6 @@ INSTALLED_APPS = [
     'tinymce',
     'bootstrap3',
     'rest_framework.authtoken'
-
-
     
 ]
 
