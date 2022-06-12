@@ -14,7 +14,6 @@ p {
   height: 100vh; 
 }
 
-
 .login-btn {
   font-family: 'Open Sans', sans-serif;
   font-size: smaller;
@@ -33,16 +32,12 @@ p {
   transition: 250ms;
 }
 
-
-
-
-
-
 .login-body {
-  width: 350px;
-  margin: 15% auto 0 auto;
+  width: 500px;
+  margin: 0 auto 0 auto;
   padding: 7%;
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 22px 0 rgba(0, 0, 0, 0.19);
+  font-size: 25px;
 
 }
 
@@ -87,13 +82,15 @@ p {
   color: #7F867B;
 }
 .register-body {
-  width: 550px;
+  width: 650px;
+  height: 650px;
   margin: 1% auto 0 auto;
   padding: 4%;
   box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 22px 0 rgba(0, 0, 0, 0.19);
-  height: 600px;
-
+ 
 }
+
+
 .quote-reg {
   margin-top: 2%;
   font-size: 12px;
@@ -111,10 +108,13 @@ p {
   background-color: #B8926A;
 }
 .heading-profile {
-  font-size: 70px;
+  font-size: 100px;
+  color: black;
 }
 .profile-text {
   font-weight: lighter;
+  color: black;
+  font-size: 30px;
 }
 .prof-body {
   margin: 10% 0 0 0;
@@ -151,7 +151,9 @@ font-weight: bold;
   
 }
 .profile-details {
-  color: #B8926A;
+  color: white;
+  text-align: center;
+
 }
 .prof-pic {
   width: 100px;
@@ -192,3 +194,4 @@ font-weight: bold;
   margin: 2%;
   padding: 2%;
 }
+

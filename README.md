@@ -2,7 +2,7 @@
 #### By Nyambura Bianca
 
 ## Description
-This application allows a user to post a project he/she has created and get it reviewed by his/her peers.
+This application allows a user to post a project they has created and get it reviewed by their peers.
 
 ## How to set it up
 Open terminal or a similar app on your computer

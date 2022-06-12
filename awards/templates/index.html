@@ -1,7 +1,45 @@
 {%extends 'base.html'%}
-
 {% load static%}
 {% block content%}
+
+<!-- start of navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    {% for profile in profiles%}
+    {% endfor %}
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      {% if user.is_authenticated %}
+        <ul class="navbar-nav m-auto  px-1">
+            <li class="nav-item mx-5 active">
+                <a class="nav-link" href="{% url 'index'%}">Home <span class="sr-only"></span></a>
+            </li>
+            <form class="form-inline my-2 my-lg-0 d-flex" action="{% url 'search_results' %}">
+                <input class="form-control mr-sm-2 place" name="search_user"  type="search" placeholder="Find users" aria-label="Search">
+               
+            </form>
+            <li class="mx-5 nav-item">
+                <a class="nav-link" href="{% url 'submit_project' %}">Submit your site</a>
+            </li>
+            <li class="mx-5 nav-item">
+                <a class="nav-link" href="{% url 'profile' pk=user.id%}">Profile</a>
+          
+            <li class="nav-item mx-5">
+                <a class="nav-link" href="{% url 'logout'%}">Logout</a>
+            </li>
+                  
+          </li>
+        </ul>
+  {% endif %}
+    </div>
+  </nav>
+
+<!-- end of navbar -->
+
 <div class="container-fluid">
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -48,13 +86,12 @@
                 <div class="card-body">
                     <p class="card-title">{{project.title}}</p>
                     <div class="d-flex justify-content-between">
-                        <p style="font-weight: normal;" class="card-text">From {{project.country}} <i class="fas 🌍"></i></p>
+                        <p style="font-weight: normal;" class="card-text">From {{project.country}} </p>
                         <p style="font-weight: normal;">{{project.posted_at}}</p>
                     </div>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">By {{project.user | title}}</li>
-
                 </ul>
 
             </div>
@@ -62,4 +99,5 @@
         {% endfor %}
     </div>
 </div>
+
 {% endblock %}
